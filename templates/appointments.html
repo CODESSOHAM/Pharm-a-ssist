@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointments</title>
+    <link rel="stylesheet" href="../static/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Doctor Appointments</h1>
+        <nav>
+            <ul>
+                <li><a href="/admin_dashboard">Dashboard</a></li>
+                <li><a href="/orders">View Medicine Orders</a></li>
+                <li><a href="/admin_login">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <table>
+            <tr>
+                <th>Patient Name</th>
+                <th>Address</th>
+                <th>Email</th>
+                <th>Contact No</th>
+                <th>Age</th>
+                <th>Appointment Date</th>
+                <th>Doctor</th>
+                <th>Token No</th>
+                
+            </tr>
+            {% for appointment in appointments %}
+            <tr>
+                <td>{{ appointment.patient_name }}</td>
+                <td>{{ appointment.address }}</td>
+                <td>{{ appointment.email }}</td>
+                <td>{{ appointment.contact_no }}</td>
+                <td>{{ appointment.age }}</td>
+                <td>{{ appointment.date }}</td>
+                <td>{{ appointment.doctor_name }}</td>
+                <td>{{ appointment.token }}</td>
+                
+            </tr>
+            {% endfor %}
+        </table>
+    </main>
+    <footer>
+        &copy; Soham Aich  |  Pharm-a-ssit  |  All Rights Reserved
+    </footer>
+</body>
+</html>

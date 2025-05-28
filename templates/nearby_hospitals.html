@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nearby Hospitals</title>
+    <link rel="stylesheet" href="../static/styles.css">
+    <style>
+        #map {
+            height: 500px;
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+    <script>
+        function initMap() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    let userLocation = { lat: position.coords.latitude, lng: position.coords.longitude };
+
+                    let map = new google.maps.Map(document.getElementById("map"), {
+                        center: userLocation,
+                        zoom: 14
+                    });
+
+                    let service = new google.maps.places.PlacesService(map);
+                    service.nearbySearch({
+                        location: userLocation,
+                        radius: 5000,
+                        type: ["hospital", "multispeciality hospitals",]
+                    }, function (results, status) {
+                        if (status === google.maps.places.PlacesServiceStatus.OK) {
+                            for (let i = 0; i < results.length; i++) {
+                                let place = results[i];
+                                let marker = new google.maps.Marker({
+                                    position: place.geometry.location,
+                                    map: map,
+                                    title: place.name,
+                                    icon: {
+                                        url: "https://maps.google.com/mapfiles/ms/icons/red-dot.png", 
+                                        scaledSize: new google.maps.Size(50, 50) 
+                                    }
+                                });
+
+                                let infoWindow = new google.maps.InfoWindow({
+                                    content: `<strong>${place.name}</strong><br>${place.vicinity}`
+                                });
+
+                                marker.addListener("click", function () {
+                                    infoWindow.open(map, marker);
+                                });
+                            }
+                        }
+                    });
+                });
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+    </script>
+</head>
+<header>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/order_medicine">Order Medicine</a></li>
+            <li><a href="/doctors">Find a Doctor</a></li>
+            <li><a href="/admin_login">Admin Login</a></li>
+            <li><a href="/contact_pharmacy">SOS-Contacts</a></li>
+            <li><a href="{{ url_for('nearby_hospitals') }}" class="active">Nearby Hospitals</a></li>
+        </ul>
+    </nav>
+</header>
+<body>
+    <h2 style="text-align: center;">Nearby Hospitals & Clinics</h2>
+    <div id="map"></div>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCsIGbJ1v2GpfWH7GmYsVoHigv0PqJQl-A&libraries=places&callback=initMap"></script>
+    <footer>
+        &copy; Soham Aich  |  Pharm-a-ssit  |  All Rights Reserved
+    </footer>
+</body>
+</html>

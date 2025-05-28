@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOS-Contacts</title>
+    <link rel="stylesheet" href="../static/styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+            text-align: center;
+        }
+        header {
+            background: #007bff;
+            padding: 15px 0;
+            color: white;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .container {
+            width: 80%;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .emergency-card {
+            padding: 20px;
+            margin: 15px auto;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
+        }
+        .emergency-card:nth-child(2) { background: #e3f2fd; }
+        .emergency-card:nth-child(3) { background: #fce4ec; }
+        .emergency-card:nth-child(4) { background: #e8f5e9; }
+        .emergency-card:nth-child(5) { background: #fff3e0; }
+        .emergency-card:hover {
+            transform: scale(1.05);
+        }
+        .whatsapp-button {
+            background: #25D366;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/order_medicine">Order Medicine</a></li>
+                <li><a href="/doctors">Find a Doctor</a></li>
+                <li><a href="/admin_login">Admin Login</a></li>
+                <li><a href="/contact_pharmacy" class="active">SOS-Contacts</a></li>
+                <li><a href="{{ url_for('nearby_hospitals') }}">Nearby Hospitals</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <h2>Emergency Services</h2>
+        <div class="emergency-card">
+            <h3>⚑ Ambulance Service</h3>
+            <p><strong>Phone:</strong> +91 98765 43210 / +91 87654 32109</p>
+            <p><strong>Email:</strong> <a href="mailto:emergency@pharmacy.com">emergency@pharmacy.com</a></p>
+            <a href="https://wa.me/917003659480?text=Emergency%20Ambulance%20Required" target="_blank">
+                <button class="whatsapp-button">Message on WhatsApp</button>
+            </a>
+        </div>
+        <div class="emergency-card">
+            <h3>🩸 Blood Sample Collection</h3>
+            <p><strong>Phone:</strong> +91 91234 56789 / +91 92345 67890</p>
+            <p><strong>Email:</strong> <a href="mailto:bloodservice@pharmacy.com">bloodservice@pharmacy.com</a></p>
+            <a href="https://wa.me/917003659480?text=Need%20Blood%20Sample%20Collection" target="_blank">
+                <button class="whatsapp-button">Message on WhatsApp</button>
+            </a>
+        </div>
+        <div class="emergency-card">
+            <h3>💉 Emergency Injections & O2 Cylinders</h3>
+            <p><strong>Phone:</strong> +91 98765 43211 / +91 87654 32108</p>
+            <p><strong>Email:</strong> <a href="mailto:o2@pharmacy.com">o2@pharmacy.com</a></p>
+            <a href="https://wa.me/917003659480?text=Urgent%20Oxygen%20Cylinder%20or%20Injection%20Required" target="_blank">
+                <button class="whatsapp-button">Message on WhatsApp</button>
+            </a>
+        </div>
+        <div class="emergency-card">
+            <h3>📍 Overall & Other Emergencies</h3>
+            <p><strong>Phone:</strong> +91 95432 67890 / +91 92341 56789</p>
+            <p><strong>Email:</strong> <a href="mailto:help@pharmacy.com">help@pharmacy.com</a></p>
+            <a href="https://wa.me/917003659480?text=Other%20Emergency%20Help" target="_blank">
+                <button class="whatsapp-button">Message on WhatsApp</button>
+            </a>
+        </div>
+        <a href="/" class="btn">Go Back to Home</a>
+    </div>
+    <footer>
+        &copy; Soham Aich  |  Pharm-a-ssit  |  All Rights Reserved
+    </footer>
+</body>
+
+</html>

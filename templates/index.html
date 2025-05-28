@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pharm-a-ssit</title>
+    <link rel="stylesheet" href="../static/styles.css">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: skyblue;
+        }
+
+        /* Navigation Bar */
+        /* Navigation Bar */
+/* Navigation Bar */
+nav {
+    background: #007BFF;
+    padding: 15px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* For logo container */
+nav .logo-container {
+    display: flex;
+    align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+/* Logo image */
+nav .logo-container img {
+    height: 60px;  /* Adjust height of the logo */
+    width: auto;
+}
+
+/* Navigation items */
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #0056b3;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+
+        /* Hero Section */
+        .hero {
+            background: url('../static/images/bg.jpg') no-repeat center center/cover;
+            opacity: 0.9;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            font-size: 3em;
+            font-weight: bold;
+            text-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
+        }
+
+        /* Sections */
+        .section {
+            padding: 30px;
+            text-align: center;
+            background: greenyellow;
+            margin: 20px auto;
+            margin-top: 40px;
+            width: 80%;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .section h2 {
+            position: relative;
+            bottom: 30px;
+            color: #007BFF;
+            font-size: 2em;
+        }
+
+        .section p {
+            position: relative;
+            bottom: 30px;
+            color: black;
+            font-size: 1.2em;
+            font-weight: 500;
+        }
+
+
+        /* Image + Text Sections */
+        .feature {
+            position: relative;
+            left: 60px;
+            width: 90%;
+            display: flex;
+            align-items: center;
+            text-align: left;
+            padding: 30px;
+        }
+        .feature img {
+            width: 50%;
+            border-radius: 20px;
+        }
+        .feature div {
+            padding: 50px;
+        }
+
+        /* Button */
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #007BFF;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background: #0056b3;
+        }
+
+        
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .feature {
+                flex-direction: column;
+                text-align: center;
+            }
+            .feature img {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+        }
+    </style>
+</head>
+<body>
+
+   
+    <nav>
+        <div class="logo-container">
+            <img src="../static/images/pharmassit_logo.png" alt="Pharm-a-ssit Logo">
+        </div>
+        <ul>   
+            <li><a href="/" class="active">Home</a></li>
+            <li><a href="/order_medicine">Order Medicine</a></li>
+            <li><a href="/doctors">Find a Doctor</a></li>
+            <li><a href="/admin_login">Admin Login</a></li>
+            <li><a href="/contact_pharmacy">SOS-Contacts</a></li>
+            <li><a href="/nearby_hospitals">Nearby Hospitals</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        Welcome to Soham's Pharm-a-ssit
+    </div>
+
+    <!-- About Us Section -->
+    <div class="section">
+        <h2>About Us</h2>
+        <p>We provide a seamless platform to access healthcare services, including online medicine orders, doctor appointments, emergency support, and nearby health facilities.</p>
+    </div>
+
+    <!-- Feature: Medicine Orders -->
+    <div class="feature">
+        <img src="../static/images/medicine.png" alt="Order Medicine" style="height: 450px; width: 480px;" >
+        <div>
+            <h2>Order Medicine Online</h2>
+            <p>Get your medicines delivered to your doorstep with just a few clicks.</p>
+            <a href="/order_medicine" class="btn">Order Now</a>
+        </div>
+    </div>
+
+    <!-- Feature: Find a Doctor -->
+    <div class="feature" style="flex-direction: row-reverse;">
+        <img src="../static/images/doct.png" alt="Find a Doctor" style="height: 440px; width: 490px;" >
+        <div>
+            <h2>Find & Book a Doctor</h2>
+            <p>Consult expert doctors and book appointments instantly.</p>
+            <a href="/doctors" class="btn">Find a Doctor</a>
+        </div>
+    </div>
+
+    <!-- Feature: Emergency SOS -->
+    <div class="feature">
+        <img src="../static/images/amb.png" alt="SOS" style="height: 450px; width: 480px;" >
+        <div>
+            <h2>Emergency SOS Services</h2>
+            <p>Need urgent help? Call emergency services with one tap.</p>
+            <a href="tel:7003659480" class="btn">Call Now</a>
+        </div>
+    </div>
+
+    <!-- Feature: Nearby Hospitals -->
+    <div class="feature" style="flex-direction: row-reverse;">
+        <img src="../static/images/hosp.png" alt="Nearby Hospitals" style="height: 450px; width: 480px;" >
+        <div>
+            <h2>Find Nearby Hospitals</h2>
+            <p>Locate hospitals and clinics within 5 km of your location.</p>
+            <a href="/nearby_hospitals" class="btn">Find Now</a>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="section">
+        <h2>Contact Us</h2>
+        <p>Email: support@medicalportal.com</p>
+        <p>Phone: +91 7003659480</p>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; Soham Aich  |  Pharm-a-ssit  |  All Rights Reserved
+    </footer>
+
+</body>
+</html>
